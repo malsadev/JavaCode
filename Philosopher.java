@@ -15,7 +15,7 @@ public class Philosopher extends Thread {
 		setName("Philosopher "+ID);
 	}
 	
-	public void run() {
+	public void run()  {
 		while(true){
 			
 			// Tell the table GUI that I am thinking
