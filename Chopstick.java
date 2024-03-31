@@ -17,17 +17,11 @@ public class Chopstick {
 		}
 
 		free = false;
-		notify();
 	}
 
 	synchronized void release() throws InterruptedException {
 
-		if (free) {
-			wait();
-		}
-
 		free = true;
-
 		notify();
 
 	}
