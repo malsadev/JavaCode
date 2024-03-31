@@ -10,21 +10,22 @@ public class Chopstick {
 
 	}
 
-	synchronized void take() throws InterruptedException {
+	synchronized boolean take() throws InterruptedException {
 
 		if (!free) {
-			wait();
+			wait(1000);
+
+			if (!free) {
+				return false; // could not get chopstick
+			}
+
 		}
 
 		free = false;
-		notify();
+		return true; // got chopstick
 	}
 
 	synchronized void release() throws InterruptedException {
-
-		if (free) {
-			wait();
-		}
 
 		free = true;
 
